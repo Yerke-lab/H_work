@@ -1,9 +1,8 @@
-﻿
+﻿// Первый способ решения 
 string[] Arr1;
 Console.WriteLine("Введите массив строк через пробел");
 string array = Console.ReadLine();
 Arr1 = array.Split(' ');
-int maxLength = 3;
 string[] ArrResult(string[] array)
 {
 int length = array.Length;
@@ -11,7 +10,7 @@ string[] result = new string[length];
 int count = 0;
 for (int i = 0; i < length; i++)
 {
-    if (array[i].Length <= maxLength)
+    if (array[i].Length <= 3)
     {
         result[count] = array[i];
         count++;
@@ -33,17 +32,29 @@ if(array.Length == 0)
 				Console.WriteLine();
 			}
 		}
-		
-		void PrintTask(string[] array)
+void PrintTask(string[] array)
 		{
-			/* Console.WriteLine("Source array:");
-			PrintArray(array); */
 			string[] shortArray = ArrResult(array);
 			Console.Write("-> ");
 			PrintArray(shortArray);
 			Console.WriteLine();
 		}
-		
-		PrintTask(Arr1);
-
-
+PrintTask(Arr1);
+ 
+//Второй способ решения
+/*string[] Arr;
+            Console.WriteLine("Введите массив строк через пробел");
+            string array = Console.ReadLine();
+            Arr = array.Split(' ');
+            var result = new string[Arr .Length];
+            var realSize = 0;
+            foreach (var value in Arr )
+            {
+                if (value.Length <= 3)
+                {
+                    result[realSize] = value;
+                    realSize++;
+                }
+            }
+            Console.Write($"-> {string.Join(Environment.NewLine, result, 0, realSize)} ");
+            Console.ReadKey(true);*/
